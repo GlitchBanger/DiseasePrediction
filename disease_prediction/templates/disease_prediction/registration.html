@@ -1,0 +1,10 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'disease_prediction/login.css' %}">
+<h1 class="title">Registration: </h1>
+<form action="" class="registration-form" method='POST'>
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Create" class="mybutton"/>
+</form>
+<a href="{% url 'index' %}" class="mylink">Already have an account? Sign in</a>

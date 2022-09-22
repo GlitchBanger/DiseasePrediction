@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>Disease Prediction App</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'disease_prediction/login.css' %}">
+	</head>
+	<body>
+		<div class="border">
+			<div class="menu">
+				<a class="menulink {% if test %}{{'target'}}{% endif %}" href="{% url 'user' id %}">
+					Take a new test
+				</a>
+				<a class="menulink {% if test %}{{''}}{% else %}{{'target'}}{% endif %}" href="">
+					Check previous tests
+				</a>
+			</div>
+		</div>
+		<div class="data">
+		{% if logindetail %}
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Prediction</th>
+					<th>Percentage</th>
+				</tr>
+			{% for i in logindetail %}
+				<tr>
+					<td>{{i.id}}</td>
+					<td>{{i.prediction}}</td>
+					<td>{{i.percentage}}</td>
+				</tr>
+			{% endfor %}
+			</table>
+		{% else %}
+			{{ "No Data Found" }}
+		{% endif %}
+		</div>
+	</body>
+</html>
