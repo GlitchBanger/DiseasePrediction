@@ -4,20 +4,31 @@
 	<head>
 		<title>Disease Prediction App</title>
 		<link rel="stylesheet" type="text/css" href="{% static 'disease_prediction/login.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'disease_prediction/test.css' %}">
 	</head>
 	<body>
 		<div class="border">
+			<a href="{% url 'index' %}" class="mylink signout">
+				Sign Out
+			</a>
 			<div class="menu">
-				<a class="menulink {% if test %}{{'target'}}{% endif %}" href="{% url 'user' id %}">
+				<a class="menulink {% if test %}{{'target'}}{% endif %}" href="{% url 'test' id %}">
 					Take a new test
 				</a>
-				<a class="menulink {% if test %}{{''}}{% else %}{{'target'}}{% endif %}" href="">
+				<a class="menulink {% if test %}{{''}}{% else %}{{'target'}}{% endif %}" href="{% url 'user' id %}">
 					Check previous tests
 				</a>
 			</div>
 		</div>
-		<div class="data">
+		{% if test %}
+		<form action="{% url 'result' id%}" method="POST">
+			{% csrf_token %}
+			{{form}}
+			<input type="submit" value="Predict" class="mybutton space-top">
+		</form>
+		{% endif %}
 		{% if logindetail %}
+		<div class="data">
 			<table>
 				<tr>
 					<th>ID</th>
@@ -26,15 +37,20 @@
 				</tr>
 			{% for i in logindetail %}
 				<tr>
-					<td>{{i.id}}</td>
+					<td><a href="{% url 'records' i.id %}">{{i.id}}</a></td>
 					<td>{{i.prediction}}</td>
 					<td>{{i.percentage}}</td>
 				</tr>
 			{% endfor %}
 			</table>
 		{% else %}
-			{{ "No Data Found" }}
-		{% endif %}
+			{% if test %}
+			{% else %}
+			<div class="data">
+				No Data Found
+			</div>
+			{% endif %}
 		</div>
+		{% endif %}
 	</body>
 </html>

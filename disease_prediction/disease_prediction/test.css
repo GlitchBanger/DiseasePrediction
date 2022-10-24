@@ -1,0 +1,42 @@
+html {
+	height: auto;
+}
+
+.signout {
+	margin-top: 30px;
+	position: relative;
+	top: 40px;
+}
+
+.field {
+	flex-direction: row;
+	justify-content: space-around;
+	width: 300px;
+}
+
+.data {
+	text-align: center;
+	margin: auto;
+	width: 80%;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	border: 2px solid white;
+	padding-top: 20px;
+}
+
+[type = 'checkbox'] {
+	height: 30px;
+	width: 30px;
+	border: none;
+}
+
+[type = 'checkbox']:hover {
+	height: 30px;
+	width: 30px;
+}
+
+.space-top {
+	margin-top: 30px;
+}

@@ -1,0 +1,24 @@
+{% load static %}
+
+<title>Disease Prediction App</title>
+<link rel="stylesheet" type="text/css" href="{% static 'disease_prediction/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'disease_prediction/test.css' %}">
+
+<a href="{% url 'user' id %}" class="mylink leftlink">Go back</a>
+
+<h1 class="title">Records</h1>
+
+<div>
+	<table>
+		<tr>
+			<th>Symptoms</th>
+			<th>Affliction</th>
+		</tr>
+		{% for key, value in records.items %}
+		<tr>
+			<td>{{key}}</td>
+			<td>{{value}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>

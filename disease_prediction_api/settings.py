@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-4g5q0!u0sqym!!p(o$c4%r%k&8fekl7!^=s_2iw_&o1&+!+y3g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
 
 
 # Application definition
@@ -60,7 +60,9 @@ ROOT_URLCONF = 'disease_prediction_api.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+        	os.path.join(BASE_DIR, 'disease_prediction')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,6 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'disease_prediction/')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'disease_prediction/static')

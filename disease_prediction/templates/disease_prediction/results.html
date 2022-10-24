@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'disease_prediction/login.css' %}">
+
+<a href="{% url 'user' id %}" class="mylink leftlink">Go back</a>
+
+<h1 class="title">Results</h1>
+<div>
+	<table>
+	<tr>
+		<th>
+			Prediction
+		</th>
+		<th>
+			Percentage
+		</th>
+	</tr>
+	<tr>
+		<td>
+			{{prediction}}
+		</td>
+		<td>
+			{{percentage}}
+		</td>
+	</tr>
+	</table>
+</div>
