@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-4g5q0!u0sqym!!p(o$c4%r%k&8fekl7!^=s_2iw_&o1&+!+y3g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1', 'https://disease-prediction-api-7399.herokuapp.com/']
 
 
 # Application definition
